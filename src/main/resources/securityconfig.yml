@@ -1,0 +1,15 @@
+securityconfig:
+  logoutsuccessurl: /
+  permitall: /rest/**,/bbs**
+  deniedpage: /deny
+  urlroles: /**/new = manage,admin
+            /**/edit/** = admin
+            /**/delete/** = admin
+            
+            
+            
+            
+            
+            
+            
+            

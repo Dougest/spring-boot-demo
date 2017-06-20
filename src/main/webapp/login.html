@@ -1,0 +1,98 @@
+<!DOCTYPE html > 
+<html > 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>hola</title> 
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+
+<!--图省事把js写上面-->
+<script type="text/javascript" src="jQuery3.1/jquery-3.1.1.min.js"></script>
+
+<style type="text/css">
+	body{
+		/*background-image: url(img/bg/shuimo4.png);
+		background-repeat:no-repeat;*/
+		height: auto;
+		width: 2000px;
+		overflow:scroll;
+		/*overflow-x:hidden;*/
+		/*overflow-y:hidden;*/
+	}
+	 .content img{
+		margin-top: 20%;
+		margin-bottom: 0px;
+		margin-left: 0px;
+		padding-bottom: 0px;
+		padding-left: 0px;
+	}
+	.nav{
+		position:absolute;
+		top: 0;
+		width: 2000px;
+		/*background-color: #e01414;*/
+		height: 50px;
+		border: 1px solid #dbe2ea;/*#de5656*/
+		background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#d6dfea), to(#eff4fa));
+	}
+	.content {
+		margin-top: 40px;
+	}
+	.fh{
+		position: absolute;
+		top:50px;
+		right: -10%;
+		width: 500px;
+		height: 700px;
+	}
+</style>
+</head>
+<body>
+	<div class="container-fluid" style="padding-left: 0px">
+		<div class="nav">
+			<button id="a" class="btn btn-default" >返回</button>
+    		
+		</div>
+		<div class="content">
+			<img src="img/bg/shuimo4.png">
+		</div>
+		<div class="fh" onload='if (this.width>400 || this.height>600) if (this.width/this.height>400/600) this.width=400; else this.height=600;'>
+			<img src="img/bg/fenghuang1.png">
+		</div>
+		<div class="music">
+    		<!-- <audio src="music/fengmingshan.mp3" autoplay="autoplay"  loop="loop" controls="controls" /> -->
+    	</div>
+	</div>
+</body>
+<script type="text/javascript">
+/*$(function(){
+	fhmove();
+	function timer() {
+	setTimeout(()=>{
+		fhmove();
+		timer();
+	},6*1000);
+}
+});*/
+	$('#a').click(()=>{
+		window.location.href='HOLA.html';
+	});
+	function funcTest(){
+	fhmove();
+    window.setInterval("fhmove()",6000);
+	}
+
+	window.onload = funcTest;
+
+	function fhmove() {
+		$(".fh").animate({
+	    top:'40px',
+	   	right: '-8%',
+ 	 },3*1000);
+	$(".fh").animate({
+	    top:'60px',
+	    right: '-15%',
+ 	 },3*1000);
+	}
+</script>
+</html>

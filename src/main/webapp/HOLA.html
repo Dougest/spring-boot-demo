@@ -1,0 +1,131 @@
+<!DOCTYPE html > 
+<html > 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>hola</title> 
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+
+<!--图省事把js写上面-->
+<script type="text/javascript" src="jQuery3.1/jquery-3.1.1.min.js"></script>
+<style type="text/css">
+	.nav{
+		position:fixed;
+		top: 0;
+		width: 100%;
+		/*background-color: #e01414;*/
+		height: 30px;
+		border: 1px solid #dbe2ea;/*#de5656*/
+		background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#d6dfea), to(#eff4fa));
+		left: 0px;
+	}
+	.footer{
+		position:fixed;
+		bottom:  0;
+		width: 100%;
+		height: 30px;
+		border: 1px solid #dbe2ea;/*#de5656*/
+		background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#d6dfea), to(#eff4fa));
+		left: 0px;
+	}
+	.container-fluid {
+		
+	}
+	body{
+		/*background-image: url(img/bg/shuimo3.png);
+		height: 1091px;*/
+		height: auto;width: auto;/*background: url(img/bg/shuimo3.png) repeat-x;*/
+		margin:0;padding:0;
+		/*height: 1091px;*/
+		overflow-x: hidden;
+	}
+	
+	.img1 {
+		opacity:0.3;
+		text-align: center;
+	}
+	.img1 img{
+		width: 60%;
+		height: 60%;
+	}
+	.img1 {
+        -webkit-animation:rotate 30s infinite linear;
+        animation:rotate 30s infinite linear;
+        position:absolute; 
+        top: 8%; 
+        left: 1%;     
+	}
+ 	@-webkit-keyframes rotate{ 
+ 		0%{ -webkit-transform:rotate(360deg); } 
+ 		100%{ -webkit-transform:rotate(0deg); } }
+	.music {
+		margin-top: 50px;
+	}
+	.music audio{
+		/*opacity:0.5;*/
+		background-color: #fff;
+	}
+	.img2 {
+		position: absolute;
+		left:  55%;
+		top: 65%;
+	}
+</style>
+</head> 
+<body> 
+
+<div class="container-fluid" style="">
+		
+		<div class="img1">
+			<img src="img/bg/bagua1.png" style="width: 500px;height: 500px;">
+		</div>
+		<div class="nav">
+    		<button id="a" class="btn btn-default" >下页</button>
+		</div>
+		<div class="bg">
+			<img src="img/bg/shuimo3.png" style="width: 110%;height: 40%;">
+		</div>
+		<div class="music">
+    		 <audio src="music/fengmingshan.mp3" autoplay="autoplay"  loop="loop" controls="controls" /> 
+    	</div>
+    	<div class="footer">
+    	</div>
+    	<div class="img2">
+    		<img src="img/bg/long1.png" style="width: 30%;height: 30%;">
+    	</div>
+	
+	
+</div>
+
+</body>
+<script type="text/javascript">
+$('#a').click(()=>{
+		window.location.href='login.html';
+	})
+function aud_play() {
+    document.getElementById("aud").play();
+}
+function aud_pause() {
+    document.getElementById("aud").pause();
+}
+
+
+function funcTest(){
+	fhmove();
+    window.setInterval("fhmove()",6000);
+	}
+
+	window.onload = funcTest;
+
+	function fhmove() {
+		$(".img2").animate({
+	    left:'55%',
+	   	top: '65%',
+ 	 },3*1000);
+	$(".img2").animate({
+	    left:'56%',
+	    top: '65%',
+ 	 },3*1000);
+	}
+</script>
+</html>

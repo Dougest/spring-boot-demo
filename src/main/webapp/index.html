@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html>
+<title>hola</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<script type="text/javascript" src="jQuery3.1/jquery-3.1.1.min.js"></script>
+<style type="text/css">
+body {
+    background-color: #000;
+}
+.navDiv {
+    top: 30px;
+    width: 100%;
+    height: 100px;
+    background-color: #F5F6EB;
+    position: fixed ;
+    cursor: pointer;
+    z-index: 999;
+  -webkit-box-shadow: 3px 3px 3px;  
+  -moz-box-shadow: 3px 3px 3px;  
+  box-shadow: 3px 3px 3px;  
+}
+.navDiv h2{
+    float: right;
+    margin-right: 50px;
+  
+}
+.navDiv a {
+    padding: 10px 10px;
+    vertical-align:middle;
+    line-height:1.5;
+    color: #666;
+}
+
+.navDiv a:hover {
+    text-decoration:none;
+        border-bottom: 4px solid rgba(0, 231, 222, 0.72);
+}
+.contentDiv {
+    width: 500px;
+    height: 300px;
+    background-color: #5cb85c;
+  /* box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);*/
+  overflow-x: hidden;
+}
+.contentDiv:hover{ 
+     transition:border linear .2s,box-shadow linear .5s;
+     -moz-transition:border linear .2s,-moz-box-shadow linear .5s;
+     -webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
+     outline:none;border-color:rgba(241,39,242,.75);
+     box-shadow:0 0 8px rgba(241,39,232,.5);
+     -moz-box-shadow:0 0 8px rgba(241,39,232,.5);
+     -webkit-box-shadow:0 0 8px rgba(241,39,232,3);
+} 
+#jumpDivUl {
+    position: fixed;
+    right: 100px;
+    top: 40%;
+}
+#jumpDivUl a {
+        display: block;
+      border-radius: 12px;
+     /* background-color: #fff;*/
+      border: 2px solid #fff;
+      width: 12px;
+    height: 12px;
+    margin-bottom: 25px;
+}
+
+#jumpDivUl li {
+    list-style-type: none;
+}
+
+#jumpDivUl li .active{
+    background-color: #fff;
+}
+.btn-own {
+    border: 1px solid #eee;
+    width: 10%;
+    height: 4%;
+    padding: 10px 16px;
+    background-color: inherit;
+    color: #eee;
+    position: relative;
+    top: 70%;
+    left: 45%;
+    z-index: 5;
+}
+
+.btn-own:hover{
+    border: 2px solid #eee;
+   font-weight: blod;
+}
+
+.input-own {
+    border-top: 0px ;
+    border-right: 0px;
+    border-left: 0px;
+    outline:none;
+     border-bottom: 1px solid #eee;
+    width: 8%;
+    height: 4%;
+    padding: 10px 16px;
+    background-color: inherit;
+    color: #eee;
+    position: relative;
+    top: 70%;
+    left: 45%;
+    z-index: 5;
+}
+
+.input-own:hover {
+    border-top: 0px ;
+    border-right: 0px;
+    border-left: 0px;
+     outline:none;
+     border-bottom: 2px solid #eee;
+    width: 16%;
+    height: 4%;
+    padding: 1% 2%;
+    background-color: inherit;
+    color: #eee;
+    position: relative;
+    top: 70%;
+    left: 45%;
+    z-index: 5;
+}
+.input-own:focus {
+    border-top: 0px ;
+    border-right: 0px;
+    border-left: 0px;
+     outline:none;
+     border-bottom: 2px solid #eee;
+    width: 16%;
+    height: 4%;
+    padding: 10px 16px;
+    background-color: inherit;
+    color: #eee;
+    position: relative;
+    top: 70%;
+    left: 45%;
+    z-index: 5;
+}
+.label-own {
+     position: relative;
+    top: 70%;
+    left: 45%;
+     padding: 16px 16px;
+    width: 5%;
+    z-index: 5;
+    color: #eee;
+    line-height: 1.5;
+    font-weight: bold;
+    font-family: 黑体;
+    font-size: 1.2em;
+}
+</style>
+<body>
+<div class="navDiv">
+    <h2><a>page1</a></h2>
+    <h2><a>page1</a></h2>
+    <h2><a>page1</a></h2>
+</div>
+
+
+<div class="module_1" id="module_1" name="module" style="background-color: #66CCCC;">
+    <a  name='module1' >&nbsp;</a>
+    <!-- <div class="contentDiv">222</div> -->
+    <button class="btn-own">按钮</button>
+    <br>
+    <label class="label-own">输入框:</label>
+  
+    <input type="text" class="input-own" name="">
+</div>
+
+<div class="" id="module_2" name="module" style="background-color: #5bc0de;">
+   <a name='module2'>&nbsp;</a>
+
+ <button class="btn-own">按钮</button>
+</div>
+
+<div class="" id="module_3" name="module" style="background-color: #f0ad4e;">
+   <a name='module3' >&nbsp;</a>
+
+ <button class="btn-own">按钮</button>
+</div>
+
+<div class="" id="module_4" name="module" style="background-color: #f17c67;">
+   <a name='module4' >&nbsp;</a>
+
+    <button class="btn-own">按钮</button>
+</div>
+
+<div >
+    <ul id="jumpDivUl">
+        <li class="active" >
+            <a href="#module1"  onclick="changeStyleForChooseli(this);" class="active"></a>
+        </li>
+        <li>
+            <a href="#module2"  onclick="changeStyleForChooseli(this);" ></a>
+        </li>
+        <li>
+            <a href="#module3" onclick="changeStyleForChooseli(this);" ></a>
+        </li>
+        <li>
+            <a href="#module4"  onclick="changeStyleForChooseli(this);" ></a>
+        </li>
+    </ul>
+</div>
+
+</body>
+<script type="text/javascript">
+    $(function(){
+      for(var i = 1; i <= 4;  i++ ) {
+            $("#module_"+i).css("height",screen.availHeight);
+      }
+      var screenHeight = screen.availHeight;
+      $(window).scroll(function(){
+         if($(window).scrollTop() >= screenHeight-300  && $(window).scrollTop() <(screenHeight*2-400)) {
+            $('#jumpDivUl').find('a').eq(1).click();
+         } else if($(window).scrollTop() >= (screenHeight*2-300) && $(window).scrollTop() <(screenHeight*3-300)) {
+           $('#jumpDivUl').find('a').eq(2).click();
+         } else if($(window).scrollTop() >= (screenHeight*3-300)) {
+           $('#jumpDivUl').find('a').eq(3).click();
+         } else {
+             $('#jumpDivUl').find('a').eq(0).click();
+         }
+      });
+    });
+
+    function changeStyleForChooseli(e) {
+        $(e).parent().parent().find('a').removeClass();
+        $(e).addClass("active");
+    }
+
+
+</script>
+</html>

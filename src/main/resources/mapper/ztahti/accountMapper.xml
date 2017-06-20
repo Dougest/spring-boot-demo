@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hola.dao.ztahti.AccountDao">
+
+    <select id="findAccounts" parameterType="java.lang.Long" resultType="com.hola.entity.ztahti.Account">
+        select
+            *
+        from
+            account
+        where
+            id = #{id}
+    </select>
+	<select id="findAccount" parameterType="com.hola.entity.ztahti.Account" resultType="com.hola.entity.ztahti.Account">
+        select
+            *
+        from
+            account
+        where
+            id = #{id}
+    </select>
+    <update id="updateAccount" parameterType="com.hola.entity.ztahti.Account" >
+        update
+          account
+        <set>
+            userName = #{userName},
+            password = #{password}
+        </set>
+        WHERE
+            id = #{id}
+    </update>
+        
+    <insert id="addAccount" parameterType="com.hola.entity.ztahti.Account">
+
+        INSERT INTO
+           account
+                (id,userName,password)
+            VALUES
+                (#{id},#{userName},#{password})
+    </insert>
+
+
+    <delete id="deleteAccount" parameterType="com.hola.entity.ztahti.Account">
+        delete
+          from
+            account
+        where
+            id = #{id}
+    </delete>
+
+    <delete id="deleteAccounts" parameterType="java.lang.Long" >
+        delete
+          from
+            account
+        where
+            id = #{id}
+    </delete>
+
+
+</mapper>

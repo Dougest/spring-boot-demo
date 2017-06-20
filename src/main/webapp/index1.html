@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html>
+<title>hola</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="style/style.css">
+<script type="text/javascript" src="jQuery3.1/jquery-3.1.1.min.js"></script>
+<style type="text/css">
+body{
+	margin:0 auto;
+	background-color: black;
+	overflow-x: hidden;
+}	
+.bg{
+	background-image: url(img/page/1491303530524.jpg);
+	width: 100%;
+	height: 100%;
+	filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+   -moz-opacity:0.5; /*Firefox私有，透明度50%*/
+   opacity:0.4;/*其他，透明度50%*/
+   z-index: 5;
+}
+.nav{
+	position: fixed;
+	top: 0px;
+	height: 60px;
+	width: 100%;
+	background-color: rgba(61,61,61,0.92);
+	 opacity:0.6;
+}
+.nav_title{
+	position: fixed;
+	text-align: center;
+	z-index: 6;
+	color: red; 
+	right: 50px;
+	top: -11px;
+	cursor: pointer;
+	display: none;
+}
+ a:hover {
+	color: red;
+	text-decoration:none;
+}
+.contentDiv{
+	width: 500px;
+	height: 300px;
+	position: fixed;
+	background-color: grey;
+	opacity: 0.8;
+	top: 100px;
+	left: 40px;
+	color: #fff;
+	font-weight: bold;
+	
+	text-align: center;
+	display: none;
+}
+.contentTwoDiv{
+	width: 500px;
+	height: 300px;
+	position: fixed;
+	background-color: grey;
+	opacity: 0.8;
+	top: 500px;
+	right: 140px;
+	color: #fff;
+	font-weight: bold;
+	
+	text-align: center;
+	display: none;
+	background-image: url(img/page/zhizhu.png);
+	background-size: 500px 300px;
+}
+.modeTwo{
+	width: 100%;
+	height: 1000px;
+	float: left;
+}
+@-webkit-keyframes rotation{
+from {-webkit-transform: rotate(0deg);}
+to {-webkit-transform: rotate(360deg);}
+}
+#xingheDiv img{
+-webkit-transform: rotate(360deg);
+animation: rotation 30s linear infinite;
+-moz-animation: rotation 30s linear infinite;
+-webkit-animation: rotation 30s linear infinite;
+-o-animation: rotation 30s linear infinite;
+}
+.btnDiv {
+	float: right;
+	margin-right: 40%;
+	display: none;
+	position:relative;
+}
+
+</style>
+<style type="text/css">
+	
+
+</style>
+<body>
+<div class="bg"></div>
+<div class="nav">
+	  
+</div>
+<div>
+	<h1 class="nav_title">
+	    <a href="http://www.baidu.com">pageOne</a>&nbsp;&nbsp;&nbsp;
+	  	<a href="http://v3.bootcss.com/css/">pageTwo</a>&nbsp;&nbsp;&nbsp;
+	  	<a href="http://www.mop.com/#">pageThree</a>
+	  </h1>
+</div>
+
+<div class="contentDiv" >
+	<div style="width: 80%;padding-top: 20px;" id="divTyping"></div>
+
+</div>
+
+<div class="contentTwoDiv" >
+	<div style="width: 80%;padding-top: 20px;" id="divTypingTwo"></div>
+</div>
+
+
+<div align="center" style="width: 100%;float: left;">
+         <h1>Gougest</h1>
+        <canvas id="canvas"></canvas>
+</div>
+<div class="modeTwo" style="background:#000 url(img/page/stars.png) repeat top center;">
+	<div id='xingheDiv' style="display: none;position:relative;">
+		<img src="img/page/heidong.png">
+	</div>
+   
+	<div class="btnDiv">
+		<button type="button" onclick="comeOnForThisTime();" class="btn btn-warning btn-lg">来吧少年</button>
+	</div>
+</div>
+<div class="zhizhuDiv"></div>
+<div class="music" style="position:fixed;top:5px;left:50px;">
+    		<!--  <audio src="music/Music.mp3" autoplay="autoplay"  loop="loop" controls="controls" />  -->
+    	</div>
+<script type="text/javascript">
+var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+       // canvas.height = window.innerHeight;
+       canvas.height = 1000;
+        canvas.width = window.innerWidth;
+        var texts = '0123456789'.split('');
+        var fontSize = 16;
+        var columns = canvas.width/fontSize;
+        // 用于计算输出文字时坐标，所以长度即为列数
+        var drops = [];
+        //初始值
+        for(var x = 0; x < columns; x++){
+            drops[x] = 1;
+        }
+        function draw(){
+            //让背景逐渐由透明到不透明
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            //文字颜色
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px arial';
+            //逐行输出文字
+            for(var i = 0; i < drops.length; i++){
+                var text = texts[Math.floor(Math.random()*texts.length)];
+                ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+                if(drops[i]*fontSize > canvas.height || Math.random() > 0.95){
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+</script>
+<script type="text/javascript">
+	$(document).ready(function () { //本人习惯这样写了
+    $(window).scroll(function () {
+        //$(window).scrollTop()这个方法是当前滚动条滚动的距离
+        //$(window).height()获取当前窗体的高度
+        //$(document).height()获取当前文档的高度
+        // var bot = 200; //bot是底部距离的高度
+        // if ((bot + $(window).scrollTop()) >= ($(document).height() - $(window).height())) {
+        //    //当底部基本距离+滚动的高度〉=文档的高度-窗体的高度时；
+        //     //我们需要去异步加载数据了
+        //     //$.getJSON("url", { page: "2" }, function (str) { alert(str); });
+        //     $(".nav").css("opacity","0.1");
+
+        // } else {
+        // 	$(".nav").css("opacity","0.6");
+        // }
+        // /scrollTop()>=$(document).height()-$(window).height()到底了
+        if($(window).scrollTop()>50) {
+        	  $(".nav").css("opacity","0.1");
+        	 $(".nav_title").show();
+        } else {
+        	$(".nav").css("opacity","0.6");
+        	$(".nav_title").hide();
+        }
+        if($(window).scrollTop()>=1000) {
+        	$("#xingheDiv").fadeIn(1000);
+        	$('.contentDiv').hide();
+        	$('.btnDiv').show(3000);
+        	//typingTwo();
+        } 
+    });
+});
+
+
+			var str =  '这是一个数据1.0的时代<br/>';
+				str += '也是信息时代即将结束的时代<br/>'; 
+				str += '没有人会一成不变<br/>'; 
+				str += '除非你是一个没有野心的人<br/>'; 
+				str += '准备好跟我一起征服这浩瀚宇宙了嘛'; 
+            var i = 0;  
+  
+            function typing(){  
+                var divTyping = document.getElementById('divTyping');  
+                if (i <= str.length) {  
+                    divTyping.innerHTML = str.slice(0, i++) + '_';  
+                    setTimeout('typing()', 200);//递归调用  
+                }  
+                else{  
+                    divTyping.innerHTML = str;//结束打字,移除 _ 光标 
+                     $('.contentDiv').fadeOut(3000); 
+                }  
+            }  
+           
+$(function(){
+            setTimeout(function(){
+            	$('.contentDiv').fadeIn(1000);
+            	setTimeout(function(){
+            		typing();
+            	},1000);
+            },1000);            
+});
+
+function comeOnForThisTime() {
+	alert('臭嗨,你还真点');
+	 setTimeout(function(){
+	 	typingTwo();
+	 },1000)
+} 
+
+				var string =  '大家好,我是老张<br/>很高兴你点了它<br/>接下来还有一件很刺激的事<br/>你可以先猜一猜<br/>准备好了嘛<br/>就不告诉你还有彩蛋<br/>哈哈哈哈哈.....<br/>哈...............<br/><br/>我看着你呢'; 
+            	var index = 0;  
+  
+            function typingTwo(){  
+            	 $('.contentTwoDiv').show();
+                var divTypingTwo = document.getElementById('divTypingTwo');  
+                if (index <= string.length) {  
+                    divTypingTwo.innerHTML = string.slice(0, index++) + '_';  
+                    setTimeout('typingTwo()', 200);//递归调用  
+                }  
+                else{  
+                    divTypingTwo.innerHTML = string;//结束打字,移除 _ 光标 
+                     $('.contentTwoDiv').fadeOut(3000);
+
+                }  
+            }  
+
+
+</script>
+</body>
+</html>

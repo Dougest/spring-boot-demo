@@ -1,0 +1,13 @@
+/target/
+/vacomall-workspace/
+/velocity.log
+/.settings
+/.idea
+/.classpath
+/.project
+/*.iml
+/.svn
+/*.png
+/*.gif
+/*.jpg
+/*.jpeg

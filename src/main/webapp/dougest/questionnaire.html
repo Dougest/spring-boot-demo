@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<title>问卷</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<script type="text/javascript" src="../jQuery3.1/jquery-3.1.1.min.js"></script>	
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ajEIqGN4xIn5sRuvaBCI8n8veGa7l52y"></script>
+</head>
+<body class="container">
+	<div class="panel panel-primary" style="margin:30px 0;">  
+		<div class="panel-body" >
+			<div style='text-align:center;'>
+				<h1 class="page-header">关于本公众号建站意向调查</h1> 
+			</div >
+			<div style='text-align:center;font-size:30px;'>
+				<p class="indent">能来的都是老铁!非常感谢老铁你抽出宝贵时间参加老张我的建站意向调查。</p>
+				<p class="indent">这里老张不会获取你的任何信息资料,只需要你挤出一点点空闲,帮助老张集思广益</p>  
+				<p class="indent">你希望我们的网站拥有什么功能,ps:以前老张是想做一个类似百度的搜索引擎,苦心钻研了很久的爬虫技术和分词技术</p>  
+    			<p class="indent">或许告诉我你想要看到的内容,当然黄赌毒除外,老张是文明的司机,不开黑车</p>
+    			<p class="indent">我可以给你们各种你们能想得到的功能,只要我老张做的到</p>
+    			<p class="indent">又或者是你们想要看到的内容,点亮你们的科技树,刷新你们的人生三观,老张定会尽力而为</p>
+    			<p class="indent">老张累不死,陪你们嗨到底</p>
+		 	</div>
+		 	<hr style="height:3px;border:none;border-top:3px solid skyblue;" />  
+		 </div>
+		 <div style='margin-top:50px;margin-bottom:100px;padding:20px;'>
+		    <div style='text-align:center;'>
+		    	<textarea class="form-control" id='message' rows="10"></textarea>
+		    	<br/>
+		      <button type="submit" id='tijiao' class="btn btn-info" style="width:200px;height:100px;font-size:30px;">提交</button>
+		    </div>
+		  </div>
+		  <div style='margin: 0 auto;text-align:center;'>
+		  	 <img  src='../img/bqb/guzhang.gif'>
+		  	 <img  src='../img/bqb/tanqin.gif'>
+		  	 <img  src='../img/bqb/tanqin2.gif'>
+		  	 <img  src='../img/bqb/guzhang3.gif'>
+		  	 <hr/>
+		  	<p class="indent" style='font-size:20px;'>--来自自然,健康,纯天然,无公害,聪明,勤劳,帅气异常的老张</p>
+		  </div>
+	</div>
+	<script>
+		$(function(){
+			$('#tijiao').click(function(){
+				 var message = $('#message').val();
+				if(!message || message == ''){
+					alert('老铁咱走点心哈 => 起码写点东西再提交啊');
+					return false;
+				} 
+				$.post("../message/questionnaire",{"message":encodeURI(message)},function(data){
+					if(data) {
+						if(data.flag){
+							alert("谢了,老铁");
+							location.reload()
+							return false;
+						}
+						if(data.message) {
+							alert(data.message);
+							return false;
+						}
+						alert("网络异常");
+					}
+				});
+			});
+		});
+		
+		/* $(function(){
+			jQuery(function($){
+				var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='+Math.random();  
+				$.getJSON(url, function(data){
+				alert(data.Ip);  
+				});
+			});
+		}); */
+		
+	</script>
+	<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398,39.897445);
+	map.centerAndZoom(point,12);
+
+	var geolocation = new BMap.Geolocation();
+	geolocation.getCurrentPosition(function(r){
+		if(this.getStatus() == BMAP_STATUS_SUCCESS){
+			var mk = new BMap.Marker(r.point);
+			map.addOverlay(mk);
+			map.panTo(r.point);
+			console.log('您的位置：'+r.point.lng+','+r.point.lat);
+		}
+		else {
+			console.log('failed'+this.getStatus());
+		}        
+	},{enableHighAccuracy: true})
+	//关于状态码
+	//BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
+	//BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
+	//BMAP_STATUS_UNKNOWN_LOCATION	位置结果未知。对应数值“2”。
+	//BMAP_STATUS_UNKNOWN_ROUTE	导航结果未知。对应数值“3”。
+	//BMAP_STATUS_INVALID_KEY	非法密钥。对应数值“4”。
+	//BMAP_STATUS_INVALID_REQUEST	非法请求。对应数值“5”。
+	//BMAP_STATUS_PERMISSION_DENIED	没有权限。对应数值“6”。(自 1.1 新增)
+	//BMAP_STATUS_SERVICE_UNAVAILABLE	服务不可用。对应数值“7”。(自 1.1 新增)
+	//BMAP_STATUS_TIMEOUT	超时。对应数值“8”。(自 1.1 新增)
+</script>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398,39.897445);
+	map.centerAndZoom(point,12);
+
+	function myFun(result){
+		var cityName = result.name;
+		map.setCenter(cityName);
+		alert("当前定位城市:"+cityName);
+	}
+	var myCity = new BMap.LocalCity();
+	myCity.get(myFun);
+	</script>
+</body>
+</html>

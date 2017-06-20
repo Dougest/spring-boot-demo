@@ -1,0 +1,175 @@
+@CHARSET "UTF-8";
+html {
+  height: 100%;
+  perspective: 16em;
+  background: dimgrey;
+}
+
+.shape, .shape *, .shape *:before, .shape *:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -4em;
+  padding: 0;
+  width: 8em;
+  height: 8em;
+  transform-style: preserve-3d;
+}
+
+.shape {
+  list-style: none;
+  animation: rot 16s infinite linear;
+}
+
+@keyframes rot {
+  from {
+    transform: rotateY(-17deg) rotateX(41deg) rotate(-62deg);
+  }
+
+  to {
+    transform: rotateY(343deg) rotateX(-319deg) rotate(298deg);
+  }
+}
+
+.pyramid:nth-child(1) {
+  transform: rotateY(0deg) translateZ(4em);
+}
+.pyramid:nth-child(1) .face:nth-child(1):before {
+  background-color: #ff4000;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2013-24-a-web.jpg");
+}
+.pyramid:nth-child(1) .face:nth-child(2):before {
+  background-color: #ff8000;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2012-10-c-web.jpg");
+}
+.pyramid:nth-child(1) .face:nth-child(3):before {
+  background-color: #ffbf00;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2007-25-d-web.jpg");
+}
+.pyramid:nth-child(1) .face:nth-child(4):before {
+  background-color: yellow;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-1999-19-b-web.jpg");
+}
+.pyramid:nth-child(2) {
+  transform: rotateY(90deg) translateZ(4em);
+}
+.pyramid:nth-child(2) .face:nth-child(1):before {
+  background-color: #bfff00;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2010-03-c-web.jpg");
+}
+.pyramid:nth-child(2) .face:nth-child(2):before {
+  background-color: #80ff00;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2010-22-a-web.jpg");
+}
+.pyramid:nth-child(2) .face:nth-child(3):before {
+  background-color: #40ff00;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2008-09-g-web.jpg");
+}
+.pyramid:nth-child(2) .face:nth-child(4):before {
+  background-color: lime;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2013-23-a-web.jpg");
+}
+.pyramid:nth-child(3) {
+  transform: rotateY(180deg) translateZ(4em);
+}
+.pyramid:nth-child(3) .face:nth-child(1):before {
+  background-color: #00ff40;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2011-01-a-web.jpg");
+}
+.pyramid:nth-child(3) .face:nth-child(2):before {
+  background-color: #00ff80;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-1990-15-a-web.jpg");
+}
+.pyramid:nth-child(3) .face:nth-child(3):before {
+  background-color: #00ffbf;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2008-31-a-web.jpg");
+}
+.pyramid:nth-child(3) .face:nth-child(4):before {
+  background-color: cyan;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2004-07-n-web.jpg");
+}
+.pyramid:nth-child(4) {
+  transform: rotateY(270deg) translateZ(4em);
+}
+.pyramid:nth-child(4) .face:nth-child(1):before {
+  background-color: deepskyblue;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2009-25-bc-web.jpg");
+}
+.pyramid:nth-child(4) .face:nth-child(2):before {
+  background-color: #007fff;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2012-01-a-web.jpg");
+}
+.pyramid:nth-child(4) .face:nth-child(3):before {
+  background-color: #0040ff;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2010-35-a-web.jpg");
+}
+.pyramid:nth-child(4) .face:nth-child(4):before {
+  background-color: blue;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2004-27-a-web.jpg");
+}
+.pyramid:nth-child(5) {
+  transform: rotateX(90deg) translateZ(4em);
+}
+.pyramid:nth-child(5) .face:nth-child(1):before {
+  background-color: #4000ff;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2013-13-a-web.jpg");
+}
+.pyramid:nth-child(5) .face:nth-child(2):before {
+  background-color: #7f00ff;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2006-01-a-web.jpg");
+}
+.pyramid:nth-child(5) .face:nth-child(3):before {
+  background-color: #bf00ff;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-1997-11-b-web.jpg");
+}
+.pyramid:nth-child(5) .face:nth-child(4):before {
+  background-color: magenta;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2004-10-a-web.jpg");
+}
+.pyramid:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(4em);
+}
+.pyramid:nth-child(6) .face:nth-child(1):before {
+  background-color: #ff00bf;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2004-32-d-web.jpg");
+}
+.pyramid:nth-child(6) .face:nth-child(2):before {
+  background-color: #ff0080;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2003-13-a-web.jpg");
+}
+.pyramid:nth-child(6) .face:nth-child(3):before {
+  background-color: #ff0040;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2008-28-c-web.jpg");
+}
+.pyramid:nth-child(6) .face:nth-child(4):before {
+  background-color: red;
+  background-image: url("http://imgsrc.hubblesite.org/hu/db/images/hs-1999-23-c-web.jpg");
+}
+
+.face {
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+.face:nth-child(1) {
+  transform: rotate(0deg) translateY(4em) rotateX(-54.73561deg) rotate(30deg) skewY(30deg) scaleX(0.86603);
+}
+.face:nth-child(2) {
+  transform: rotate(90deg) translateY(4em) rotateX(-54.73561deg) rotate(30deg) skewY(30deg) scaleX(0.86603);
+}
+.face:nth-child(3) {
+  transform: rotate(180deg) translateY(4em) rotateX(-54.73561deg) rotate(30deg) skewY(30deg) scaleX(0.86603);
+}
+.face:nth-child(4) {
+  transform: rotate(270deg) translateY(4em) rotateX(-54.73561deg) rotate(30deg) skewY(30deg) scaleX(0.86603);
+}
+.face:before {
+  transform: scaleX(1.1547) skewY(-30deg) rotate(-30deg) translateY(-4em);
+  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.85);
+  background-position: 50% 86.66%;
+  background-size: cover;
+  content: '';
+}
+.face:after {
+  box-shadow: inset 1px 1px rgba(255, 255, 255, 0.5);
+  content: '';
+}
